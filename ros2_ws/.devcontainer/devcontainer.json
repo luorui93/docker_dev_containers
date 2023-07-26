@@ -1,0 +1,26 @@
+{
+  "name": "humble desktop",
+  "dockerFile": "Dockerfile",
+  "containerEnv": {
+    "DISPLAY": "unix:1",
+    "ROS_LOCALHOST_ONLY": "1",
+    "ROS_DOMAIN_ID": "42"
+  },
+  "runArgs": [
+    "--privileged",
+    "--network=host",
+    "-e", "DISPLAY=${env:DISPLAY}"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
+  "workspaceFolder": "/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind",
+    // "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+    // "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
+    // "source=${localWorkspaceFolder}/../cache/humble/build,target=/home/ws/build,type=bind",
+    // "source=${localWorkspaceFolder}/../cache/humble/install,target=/home/ws/install,type=bind",
+    // "source=${localWorkspaceFolder}/../cache/humble/log,target=/home/ws/log,type=bind"
+  ],
+  // "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R rui /home/ws/"
+
+}
