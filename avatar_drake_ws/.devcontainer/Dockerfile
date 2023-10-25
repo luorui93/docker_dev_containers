@@ -18,6 +18,7 @@ RUN apt-get install -y git-all
 RUN apt-get install -y vim
 RUN apt-get install -y tmux
 ENV SHELL /bin/bash
+ENV PYTHONPATH /opt/drake/lib/python3.10/site-packages:
 
 # ********************************************************
 # * Anything else you want to do like clean up goes here *
